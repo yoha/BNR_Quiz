@@ -50,6 +50,10 @@
                             <constraint firstItem="cDT-uR-nk3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wGE-wD-iSE"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="answerLabel" destination="Uyy-4Q-wtq" id="Kzm-md-mHw"/>
+                        <outlet property="questionLabel" destination="cDT-uR-nk3" id="Jlc-8D-j0K"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
