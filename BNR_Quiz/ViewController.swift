@@ -14,5 +14,14 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answerLabel: UILabel!
+    
+    // MARK: - IBAction Methods
+    
+    @IBAction func showNextQuestionButtonDidTouch(sender: UIButton) {
+        
+    }
+    @IBAction func showAnswerButtonDidToich(sender: UIButton) {
+        
+    }
 }
 
