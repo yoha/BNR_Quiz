@@ -29,7 +29,10 @@ class ViewController: UIViewController {
         
         self.questionLabel.text = self.qna.questions[self.qna.currentQuestionIndex]
         self.answerLabel.text = "???"
+        
+        self.animateLabelTransitions()
     }
+    
     @IBAction func showAnswerButtonDidToich(sender: UIButton) {
         self.answerLabel.text = self.qna.answers[self.qna.currentQuestionIndex]
     }
@@ -40,6 +43,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         self.questionLabel.text = self.qna.questions[self.qna.currentQuestionIndex]
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.questionLabel.alpha = 0.0
+    }
+    
+    // MARK: - Helper Methods
+    
+    func animateLabelTransitions() {
+        UIView.animateWithDuration(0.5) { () -> Void in
+            self.questionLabel.alpha = 1.0
+        }
     }
 }
 
