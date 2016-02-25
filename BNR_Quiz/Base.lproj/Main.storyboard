@@ -40,13 +40,20 @@
                                 <rect key="frame" x="254" y="318" width="93" height="30"/>
                                 <state key="normal" title="Show Answer"/>
                                 <connections>
-                                    <action selector="showAnswerButtonDidToich:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ulo-C6-0j1"/>
+                                    <action selector="showAnswerButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4v7-cD-bgq"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDY-Jt-FNE">
+                                <rect key="frame" x="288" y="28" width="25" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="xDY-Jt-FNE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4h4-oh-GOy"/>
                             <constraint firstItem="e50-PW-VeC" firstAttribute="top" secondItem="cDT-uR-nk3" secondAttribute="bottom" constant="8" id="S7d-AD-BZD"/>
+                            <constraint firstItem="xDY-Jt-FNE" firstAttribute="top" secondItem="cDT-uR-nk3" secondAttribute="top" id="XCo-Rp-g1X"/>
                             <constraint firstItem="Uyy-4Q-wtq" firstAttribute="top" secondItem="e50-PW-VeC" secondAttribute="bottom" constant="202" id="aSK-h3-zjg"/>
                             <constraint firstItem="eRW-RC-cKu" firstAttribute="top" secondItem="Uyy-4Q-wtq" secondAttribute="bottom" constant="8" id="dxi-B4-2Cd"/>
                             <constraint firstItem="cDT-uR-nk3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="e3J-q9-Cdk"/>
@@ -58,7 +65,8 @@
                     </view>
                     <connections>
                         <outlet property="answerLabel" destination="Uyy-4Q-wtq" id="Kzm-md-mHw"/>
-                        <outlet property="questionLabel" destination="cDT-uR-nk3" id="Jlc-8D-j0K"/>
+                        <outlet property="currentQuestionLabel" destination="cDT-uR-nk3" id="MCi-a3-hJA"/>
+                        <outlet property="nextQuestionLabel" destination="xDY-Jt-FNE" id="Lkc-sC-mxg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

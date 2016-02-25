@@ -16,7 +16,8 @@ class ViewController: UIViewController {
 
     // MARK: - IBOutlet Properties
     
-    @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var currentQuestionLabel: UILabel!
+    @IBOutlet weak var nextQuestionLabel: UILabel!
     @IBOutlet weak var answerLabel: UILabel!
     
     // MARK: - IBAction Methods
@@ -27,13 +28,13 @@ class ViewController: UIViewController {
             self.qna.currentQuestionIndex = 0
         }
         
-        self.questionLabel.text = self.qna.questions[self.qna.currentQuestionIndex]
+        self.nextQuestionLabel.text = self.qna.questions[self.qna.currentQuestionIndex]
         self.answerLabel.text = "???"
         
         self.animateLabelTransitions()
     }
     
-    @IBAction func showAnswerButtonDidToich(sender: UIButton) {
+    @IBAction func showAnswerButtonDidTouch(sender: UIButton) {
         self.answerLabel.text = self.qna.answers[self.qna.currentQuestionIndex]
     }
     
@@ -42,20 +43,21 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.questionLabel.text = self.qna.questions[self.qna.currentQuestionIndex]
+        self.currentQuestionLabel.text = self.qna.questions[self.qna.currentQuestionIndex]
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.questionLabel.alpha = 0.0
+        self.nextQuestionLabel.alpha = 0.0
     }
     
     // MARK: - Helper Methods
     
     func animateLabelTransitions() {
         UIView.animateWithDuration(0.5) { () -> Void in
-            self.questionLabel.alpha = 1.0
+            self.currentQuestionLabel.alpha = 0.0
+            self.nextQuestionLabel.alpha = 1.0
         }
     }
 }
