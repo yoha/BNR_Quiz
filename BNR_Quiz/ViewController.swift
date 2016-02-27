@@ -17,7 +17,11 @@ class ViewController: UIViewController {
     // MARK: - IBOutlet Properties
     
     @IBOutlet weak var currentQuestionLabel: UILabel!
+    @IBOutlet weak var currentQuestionLabelCenterXConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var nextQuestionLabel: UILabel!
+    @IBOutlet weak var nextQuestionLabelCenterXConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var answerLabel: UILabel!
     
     // MARK: - IBAction Methods
@@ -44,6 +48,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         self.currentQuestionLabel.text = self.qna.questions[self.qna.currentQuestionIndex]
+        self.updateOffScreenNextQuestionLabel()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -55,10 +60,26 @@ class ViewController: UIViewController {
     // MARK: - Helper Methods
     
     func animateLabelTransitions() {
-        UIView.animateWithDuration(0.5) { () -> Void in
+        self.view.layoutIfNeeded()
+        
+        let screenWidth = self.view.frame.width
+        self.nextQuestionLabelCenterXConstraint.constant = 0
+        self.currentQuestionLabelCenterXConstraint.constant = screenWidth
+        
+        UIView.animateWithDuration(0.5, delay: 0.0, options: [], animations: { () -> Void in
             self.currentQuestionLabel.alpha = 0.0
             self.nextQuestionLabel.alpha = 1.0
+            self.view.layoutIfNeeded()
+            }) { (_) -> Void in
+                swap(&self.currentQuestionLabel, &self.nextQuestionLabel)
+                swap(&self.currentQuestionLabelCenterXConstraint, &self.nextQuestionLabelCenterXConstraint)
+                self.updateOffScreenNextQuestionLabel()
         }
+    }
+    
+    func updateOffScreenNextQuestionLabel() {
+        let screenWidth = self.view.frame.width
+        self.nextQuestionLabelCenterXConstraint.constant = -screenWidth
     }
 }
 
